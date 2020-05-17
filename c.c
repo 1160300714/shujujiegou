@@ -35,21 +35,58 @@ int aaa(SqList l){
 
 int bbb(SqList l){
 	int temp = 0;
-	for (int i = 0; i < l.length; i++)
+	for (int i = 0; i < l.length/2; i++)
 	{
 		temp = l.data[i];
 		l.data[i] = l.data[l.length-i-1];
 		l.data[l.length-i-1] =temp;
 		/* code */
 	}
+	//打印
+	for (int i = 0; i < l.length; i++)
+	{
+		printf("%d", l.data[i]);
+		/* code */
+	}
+	printf("\n");
 	return 0;
 }
+
+int ccc(SqList l,int x){
+	int num = 0;
+	for (int i = 0; i < l.length; i++)
+	{
+		l.data[i-num] = l.data[i];
+		if (l.data[i] == x)
+		{
+			num++;
+			/* code */
+		}
+		/* code */
+	}
+	for (int i = 0; i < num; i++)
+		{
+			l.length--;
+			/* code */
+		}
+
+	//打印
+	for (int i = 0; i < l.length; i++)
+	{
+		printf("%d", l.data[i]);
+		/* code */
+	}
+	printf("\n");
+	return 0;
+}
+
+
 
 int main(int argc, char const *argv[])
 {
 
 	SqList l ;
-	int a;
+	int a,b;
 
 	l.data[0] = 6;
 	l.data[1] = 4;
@@ -65,9 +102,16 @@ int main(int argc, char const *argv[])
 		printf("%d", l.data[i]);
 		/* code */
 	}
+	printf("\n\n");
 
-	a = aaa(l);
-	printf("%d\n", a);
+
+	//a = aaa(l);
+	//printf("%d\n", a);
+
+	//bbb(l);
+
+	//ccc(l,2);
+
 	
 
 	return 0;
